@@ -1,0 +1,10 @@
+*Practica 7* 
+Esta practica es una replica de un formulario.
+
+Se uso CSS para la mayoria de estilos. La mayoria de las selecciones son por elementos pero tambien se aplica seleccion por ID y por clase.
+La seleccion con 'ID' la usamos con el button para enviar.
+La seleccion por 'Class' la usamos con la etiqueta 'hr'.
+
+Los hipervinculos te redirigen a la pagina 404 (404.html) donde se encuentran las imagenes necesarias
+Se aplicaron estilos en linea y en el propio documento index (index.html) 
+Se uso la fuente 'Roboto' the google fonts y La fuente 'Sans-serif' para el texto de 404.
