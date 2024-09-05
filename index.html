@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cotizador</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/parallax.css">
+</head>
+
+<body class="bg-gray-100  w-full">
+
+
+    <!-- Header -->
+    <header class="bg-blue-800 text-white py-4 px-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Seguros AlgoconAlgo</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="./index.html" class="hover:text-blue-300">Inicio</a></li>
+                    <li><a href="./pages/cotizador.html" class="hover:text-blue-300">Cotizador</a></li>
+                    <li><a href="./pages/api.html" class="hover:text-blue-300">API</a></li>
+                    <li><a href="/contacto.html" class="hover:text-blue-300">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <hero>
+        <div class="parallax-container">
+            <div class="parallax-bg">
+                <div class="shadow w-full h-full bg-black opacity-5"></div>
+            </div>
+            
+            <div class="content">
+              <h2 class="text-3xl font-bold mb-6">Catálogo de Seguros</h2>
+              <p>This is a parallax hero section.</p>
+            </div>
+          </div>
+    </hero>
+    <main class="container mx-auto my-8 px-20">
+                <!-- Seguro de Hogar -->
+        <section class="mb-4 ">
+            <h3 class="text-2xl font-semibold mb-4">Seguros de Hogar</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                    <div  class="card bg-white p-6 shadow-lg rounded-lg cursor-pointer" data-tipo="Hogar" >
+                        <h4 class="text-xl font-bold">Seguro de Incendio</h4>
+                        <p class="mt-2">Protege tu hogar contra daños causados por incendios, explosiones, o rayos.</p>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Cubre daños a la estructura de la vivienda.</li>
+                            <li>Cobertura para bienes dentro del hogar.</li>
+                            <li>Asistencia 24 horas para emergencias.</li>
+                        </ul>
+                    </div>
+                    <div class="card bg-white p-6 shadow-lg rounded-lg cursor-pointer" data-tipo="Hogar" >
+                        <h4 class="text-xl font-bold">Seguro de robo</h4>
+                        <p class="mt-2">Protege tu hogar contra daños causados por incendios, explosiones, o rayos.</p>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Cubre daños a la estructura de la vivienda.</li>
+                            <li>Cobertura para bienes dentro del hogar.</li>
+                            <li>Asistencia 24 horas para emergencias.</li>
+                        </ul>
+                    </div>
+                    <div class="card bg-white p-6 shadow-lg rounded-lg cursor-pointer" data-tipo="Hogar" >
+                        <h4 class="text-xl font-bold">Seguro de Inundacion</h4>
+                        <p class="mt-2">Protege tu hogar contra daños causados por incendios, explosiones, o rayos.</p>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Cubre daños a la estructura de la vivienda.</li>
+                            <li>Cobertura para bienes dentro del hogar.</li>
+                            <li>Asistencia 24 horas para emergencias.</li>
+                        </ul>
+                    </div>
+
+            </div>
+        </section>
+
+        <!-- Seguro de Comercio -->
+        <section class="mb-4">
+            <h3 class="text-2xl font-semibold mb-4">Seguros de Comercio</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Seguro de Responsabilidad Civil -->
+                    <div class="card bg-white p-6 shadow-lg rounded-lg cursor-pointer" data-tipo="Comercio" >
+                        <h4 class="text-xl font-bold">Seguro de Responsabilidad Civil</h4>
+                        <p class="mt-2">Protege a tu negocio contra reclamaciones de terceros por daños o lesiones.</p>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Cobertura para daños a clientes o visitantes.</li>
+                            <li>Asesoría legal incluida.</li>
+                            <li>Protección en caso de demandas.</li>
+                        </ul>
+                    </div>
+     
+                    <div class="card bg-white p-6 shadow-lg rounded-lg cursor-pointer" data-tipo="Comercio" >
+                        <h4 class="text-xl font-bold">Seguro de Desastres Naturales</h4>
+                        <p class="mt-2">Protege a tu negocio contra reclamaciones de terceros por daños o lesiones.</p>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Cobertura para daños a clientes o visitantes.</li>
+                            <li>Asesoría legal incluida.</li>
+                            <li>Protección en caso de demandas.</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="card bg-white p-6 shadow-lg rounded-lg cursor-pointer" data-tipo="Comercio" >
+                        <h4 class="text-xl font-bold">Seguro de Cierre</h4>
+                        <p class="mt-2">Protege a tu negocio contra reclamaciones de terceros por daños o lesiones.</p>
+                        <ul class="list-disc list-inside mt-4">
+                            <li>Cobertura para daños a clientes o visitantes.</li>
+                            <li>Asesoría legal incluida.</li>
+                            <li>Protección en caso de demandas.</li>
+                        </ul>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Seguros AlgoconAlgo. Todos los derechos reservados.</p>
+            <ul class="flex justify-center space-x-4 mt-2">
+                <li><a href="#" class="hover:text-gray-400">Facebook</a></li>
+                <li><a href="#" class="hover:text-gray-400">Twitter</a></li>
+                <li><a href="#" class="hover:text-gray-400">LinkedIn</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <script src="./scripts/abrirCotizador.js" ></script>
+</body>
+</html>
