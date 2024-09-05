@@ -32,6 +32,7 @@ function calcularPoliza(tipo, ubicacion, valor, cobertura) {
     console.log(`El costo estimado de la póliza es: $${costo.toFixed(2)}`);
     return costo.toFixed(2);
 }
+```
 ### 3. Página o Pestaña API
 
 La página o pestaña "API" está diseñada para mostrar un perfil de usuario aleatorio utilizando la API de [Random User](https://randomuser.me/). Al cargar la página, se muestra un usuario aleatorio, incluyendo su nombre, foto, correo electrónico y ubicación.
@@ -67,3 +68,4 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchRandomUser();
     });
 });
+```
