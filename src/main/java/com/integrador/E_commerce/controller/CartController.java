@@ -13,19 +13,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.integrador.E_commerce.model.Cart;
+import com.integrador.E_commerce.model.Producto;
 import com.integrador.E_commerce.model.service.CartService;
+import com.integrador.E_commerce.model.service.ProductoService;
 
 @RestController
-@RequestMapping("/api/carts")
+@RequestMapping("/api/v1/carts")
 public class CartController {
 
     @Autowired
     private CartService cartService;
+    @Autowired
+    private ProductoService productService;
 
     // Obtener todos los carritos (GET)
-    @GetMapping
+    @GetMapping("/cart")
     public List<Cart> getAllCarts() {
         return cartService.getAllCarts();
+    }
+    
+    @PostMapping("/add")
+    public void addToCart(@RequestBody Producto producto) {
+        cartService.addToCart(producto);
+    }
+    
+    @GetMapping
+    public List<Producto> getCartItems() {
+        return cartService.getCartItems();
     }
 
     // Obtener un carrito por ID (GET)

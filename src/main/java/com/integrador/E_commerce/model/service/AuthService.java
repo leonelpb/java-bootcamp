@@ -46,6 +46,7 @@ public class AuthService {
 
 		// Creamos un nuevo cliente usando el DTO
 		Customer newCustomer = new Customer();
+		newCustomer.setNombre(signupRequest.getNombre());	
 		newCustomer.setUsername(signupRequest.getUsername());
 		newCustomer.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 		newCustomer.setEmail(signupRequest.getEmail()); // Si tienes un campo email en Customer

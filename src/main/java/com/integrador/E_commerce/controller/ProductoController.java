@@ -17,8 +17,7 @@ import com.integrador.E_commerce.model.Producto;
 import com.integrador.E_commerce.model.service.ProductoService;
 
 @RestController
-@RequestMapping("/api/products")
-
+@RequestMapping("/api/v1/products")
 public class ProductoController {
 	@Autowired
     private ProductoService productoService;

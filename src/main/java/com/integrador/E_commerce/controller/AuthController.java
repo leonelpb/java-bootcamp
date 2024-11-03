@@ -13,7 +13,7 @@ import com.integrador.E_commerce.DTO.SignupRequest;
 import com.integrador.E_commerce.model.service.AuthService;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
 	@Autowired
 	private AuthService authService;

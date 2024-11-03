@@ -1,6 +1,7 @@
 package com.integrador.E_commerce.DTO;
 
 public class SignupRequest {
+	private String nombre;
 	private String username;
 	private String password;
 	private String email;
@@ -29,5 +30,12 @@ public class SignupRequest {
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
 	}
 }

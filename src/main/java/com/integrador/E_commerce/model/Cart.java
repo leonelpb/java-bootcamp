@@ -29,4 +29,6 @@ public class Cart {
 
     // Total del carrito
     private Double total;
+
+   
 }
