@@ -1,10 +1,15 @@
 package com.integrador.E_commerce.DTO;
 
+import com.integrador.E_commerce.model.Cart;
+
 public class SignupRequest {
 	private String nombre;
 	private String username;
 	private String password;
 	private String email;
+	
+
+
 
 	// Otros campos como email o nombre si son necesarios
 	// Getters y setters

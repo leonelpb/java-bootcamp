@@ -1,6 +1,8 @@
 package com.integrador.E_commerce.model;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -14,11 +16,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 @Entity
 @Table(name = "customers")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long customerId;
 
     @Column(nullable = false)
     private String nombre;
@@ -32,10 +36,9 @@ public class Customer {
     
     private String password;
 
-    // Un cliente puede tener varios carritos (si decides manejar varios), por ahora uno
-    @OneToMany(mappedBy = "customer")
-    private List<Cart> carts;
-
+	@OneToOne(mappedBy = "customer", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, orphanRemoval = true)
+	private Cart cart;
+	
 	public String getDireccion() {
 		return direccion;
 	}

@@ -1,5 +1,7 @@
 package com.integrador.E_commerce.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,11 +20,10 @@ public class AuthController {
 	@Autowired
 	private AuthService authService;
 
-	// Endpoint para login
 	@PostMapping("/login")
-	public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest) {
-		String token = authService.login(loginRequest);
-		return ResponseEntity.ok(new AuthResponse(token));
+	public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest loginRequest) {
+	    Map<String, Object> response = authService.login(loginRequest);
+	    return ResponseEntity.ok(response);
 	}
 
 	// Endpoint para signup

@@ -2,7 +2,10 @@ package com.integrador.E_commerce.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +17,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.integrador.E_commerce.model.Producto;
+import com.integrador.E_commerce.model.repository.ProductoRepository;
 import com.integrador.E_commerce.model.service.ProductoService;
 
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductoController {
+	
 	@Autowired
     private ProductoService productoService;
 
     // Obtener todos los productos (GET)
-    @GetMapping
+    @GetMapping("/all")
     public List<Producto> getAllProducts() {
         return productoService.getAllProducts();
     }
@@ -40,9 +45,10 @@ public class ProductoController {
     }
 
     // Crear un nuevo producto (POST)
-    @PostMapping
-    public Producto createProducto(@RequestBody Producto producto) {
-        return productoService.saveOrUpdateProduct(producto);
+    @PostMapping("/create")
+    public ResponseEntity<Producto> createProducto(@Valid @RequestBody Producto producto) {
+    	  Producto nuevoProducto = productoService.saveOrUpdateProduct(producto);
+    	    return ResponseEntity.status(HttpStatus.CREATED).body(nuevoProducto);
     }
 
     // Actualizar un producto (PUT)

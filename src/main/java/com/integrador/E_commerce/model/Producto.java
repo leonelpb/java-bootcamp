@@ -1,4 +1,10 @@
 package com.integrador.E_commerce.model;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*; // Para las anotaciones de JPA
 import lombok.Data; // Para las anotaciones de Lombok
 
@@ -8,15 +14,23 @@ import lombok.Data; // Para las anotaciones de Lombok
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Autogenera el ID
-    private Long id;
-
-    @Column(nullable = false) // Campo obligatorio en la tabla
-    private String nombre;
-
-    private String descripcion;
+    @JsonProperty("id")
+    private Long productId;
 
     @Column(nullable = false)
+    @JsonProperty("title")// Campo obligatorio en la tabla
+    private String nombre;
+
+    @JsonProperty("description")
+    @Column(length = 255)
+    @Size(max = 255)
+    private String descripcion;
+    
+    @JsonProperty("image")
+    private String imagen;
+
+    @Column(nullable = false)
+    @JsonProperty("price")
     private Double precio;
 
     private Integer stock;
@@ -25,6 +39,10 @@ public class Producto {
     @ManyToOne // Muchos productos pueden pertenecer a una categoría
     @JoinColumn(name = "categoria_id") // Define la columna que será la foreign key
     private Categoria categoria;
+    
+    
+	@OneToMany(mappedBy = "producto", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
+	private List<CartItem> products = new ArrayList<>();
 
 	public String getDescripcion() {
 		return descripcion;
@@ -56,6 +74,14 @@ public class Producto {
 
 	public void setPrecio(Double precio) {
 		this.precio = precio;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 	
 	

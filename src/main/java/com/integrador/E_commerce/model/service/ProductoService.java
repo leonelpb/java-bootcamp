@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,26 +22,30 @@ public class ProductoService {
 
 	private final RestTemplate restTemplate;
 
-	public ProductoService(RestTemplate restTemplate) {
-	        this.restTemplate = restTemplate;
-	    }
-	
-	public List<Producto> fetchProducts() {
-        try {
-            Producto[] productos = restTemplate.getForObject(apiUrl, Producto[].class);
-            return Arrays.asList(productos);
-        } catch (Exception e) {
-            // Manejo básico de excepciones en caso de error en la API
-            System.err.println("Error al obtener productos de la API: " + e.getMessage());
-            return List.of(); // Devuelve una lista vacía en caso de error
-        }
-    }
-	  public void addProductToCart(Cart cart, Producto producto) {
-	        cart.getCart.add(producto);
-	    }
-
 	@Autowired
 	private ProductoRepository productoRepository;
+
+	public ProductoService(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
+
+	public void fetchProducts() {
+	
+	    ResponseEntity<List<Producto>> response = restTemplate.exchange(apiUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<Producto>>() {});
+	    
+	    List<Producto> productos = response.getBody();
+	    System.out.println("Número de productos obtenidos: " + productos.size());
+	    
+	    if (productos != null) {
+	        for (Producto producto : productos) {
+	        	if (producto.getDescripcion().length() > 255) {
+	                producto.setDescripcion(producto.getDescripcion().substring(0, 255));
+	            }
+	            productoRepository.save(producto);
+	        }
+	    }
+	}
+
 
 	// Obtener todos los productos
 	public List<Producto> getAllProducts() {

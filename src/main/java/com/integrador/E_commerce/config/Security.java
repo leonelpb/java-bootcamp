@@ -26,7 +26,7 @@ public class Security {
 	@Bean
 	SecurityFilterChain web(HttpSecurity http) throws Exception {
 		http.cors(withDefaults()).csrf(crf -> crf.disable()).authorizeHttpRequests(
-				(authorize) -> authorize.requestMatchers("/api/v1/auth/**").permitAll().anyRequest().authenticated())
+				(authorize) -> authorize.requestMatchers("/api/v1/auth/**", "/api/v1/products","/api/v1/products/all","/api/v1/products/{id}").permitAll().anyRequest().authenticated())
 				.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
 				.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
